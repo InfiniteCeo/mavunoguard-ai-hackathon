@@ -7,6 +7,7 @@
 <link rel="icon" type="image/png" href="/static/favicon.png">
 <link rel="apple-touch-icon" href="/static/apple-touch-icon.png">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://accounts.google.com/gsi/client" async defer></script>
 <title>MavunoGuard AI</title>
 <style>
 :root{--g:#08783b;--g2:#13a64d;--dark:#063b22;--bg:#eef6f0;--card:#fff;--line:#dce8df;--muted:#647168;--warn:#f1a51b;--danger:#d93c3c;--blue:#1976d2}*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;background:var(--bg);color:#17231c}button,input,select{font:inherit}button{cursor:pointer}.top{background:linear-gradient(135deg,#063d22,#0b8d43);color:#fff;padding:16px 18px;position:sticky;top:0;z-index:1000}.topbar{max-width:1150px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:10px}.brand{font-size:22px;font-weight:900}.brand span{color:#91eca5}.tag{font-size:12px;opacity:.82}.top-actions{display:flex;gap:8px;align-items:center}.container{max-width:1150px;margin:auto;padding:18px 14px 45px}.hero{padding:22px;border-radius:22px;background:linear-gradient(135deg,#fbfffc,#e5f7ea);border:1px solid var(--line);margin-bottom:15px}.hero h1{margin:0 0 7px;color:var(--dark);font-size:30px}.hero p{margin:0;max-width:780px;line-height:1.55;color:#4c5b52}.status{padding:10px 13px;border-radius:11px;background:#e7f7ec;color:#176536;margin-bottom:13px;font-size:13px;display:none}.offline{background:#fff3d8;color:#744c08}.grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.card{background:var(--card);border:1px solid var(--line);border-radius:19px;padding:18px;box-shadow:0 7px 25px #063b2210}.card h2,.card h3{margin-top:0}.steps{display:flex;gap:7px;overflow:auto;margin-bottom:14px}.step{padding:8px 11px;border-radius:999px;background:#edf2ee;color:#66736b;font-size:12px;white-space:nowrap}.step.active{background:#dff5e5;color:var(--g);font-weight:800}.step.done{background:var(--g);color:#fff}.form-step{display:none}.form-step.active{display:block}.label{display:block;font-weight:750;font-size:13px;margin:13px 0 6px}.small{font-size:12px;color:var(--muted)}input,select{width:100%;padding:11px 12px;border:1px solid #cddbd1;border-radius:11px;background:#fff;outline:none}input:focus,select:focus{border-color:var(--g);box-shadow:0 0 0 3px #08783b16}.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.chips{display:flex;gap:7px;flex-wrap:wrap}.chip{border:1px solid var(--line);background:#fff;border-radius:11px;padding:9px 11px;font-size:12px}.chip.selected{border-color:var(--g);background:#e8f8ed;color:var(--g);font-weight:800}.actions{display:flex;justify-content:space-between;gap:9px;margin-top:18px}.btn{border:0;border-radius:11px;padding:11px 15px;font-weight:800}.primary{background:var(--g);color:#fff}.secondary{background:#edf2ee;color:#25352b}.danger{background:#fff0f0;color:#9b2424;border:1px solid #f0c7c7}.ghost{background:transparent;border:1px solid #ffffff55;color:#fff}.accent{background:#91eca5;color:#063d22}.mapbox{position:relative}.map{height:330px;border-radius:14px;overflow:hidden;border:1px solid var(--line)}.maptools{display:flex;gap:7px;flex-wrap:wrap;margin:9px 0}.location{background:#f5f8f6;border:1px solid var(--line);padding:9px 11px;border-radius:10px;font-size:12px}.photo{border:2px dashed #c8d9cd;border-radius:13px;padding:13px;text-align:center}.photo img{max-width:100%;max-height:180px;border-radius:10px;display:none;margin:9px auto}.dashboard{display:none}.dashboard.show{display:block}.summary{margin-bottom:12px}.riskbar{height:13px;background:#e7eee9;border-radius:999px;overflow:hidden;margin:8px 0}.riskfill{height:100%;width:0;background:var(--g);transition:width .5s}.riskhead{display:flex;justify-content:space-between;align-items:center;gap:10px}.score{font-size:42px;font-weight:950;color:var(--dark)}.pill{padding:6px 9px;border-radius:999px;font-size:11px;font-weight:900;background:#eaf7ee;color:var(--g)}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}.metric{border:1px solid var(--line);padding:10px;border-radius:12px;text-align:center}.metric small{display:block;color:var(--muted)}.metric strong{display:block;margin-top:5px;font-size:15px}.chartgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}.chart{border:1px solid var(--line);border-radius:15px;padding:12px;background:#fcfefc}.chart h3{font-size:14px;margin-bottom:6px}.chart svg{width:100%;height:190px}.legend{font-size:11px;color:var(--muted)}.actions-list{list-style:none;padding:0;margin:0}.actions-list li{padding:11px 0;border-bottom:1px solid #edf1ee;line-height:1.45}.num{display:inline-grid;place-items:center;width:23px;height:23px;border-radius:50%;background:var(--g);color:#fff;font-size:11px;font-weight:900;margin-right:7px}.source{font-size:11px;color:var(--muted);margin-top:10px}.footer{text-align:center;color:#738078;font-size:11px;margin-top:22px}.hidden{display:none!important}.garmin{background:#f7fbf8;border:1px solid var(--line);padding:12px;border-radius:13px;margin-top:12px}.toast{position:fixed;right:15px;bottom:15px;z-index:3000;background:#10271b;color:#fff;padding:11px 13px;border-radius:11px;display:none;max-width:320px;font-size:12px}
@@ -21,10 +22,19 @@
 .install-text p{margin:0;font-size:12px;color:var(--muted);line-height:1.35}
 .install-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:12px}
 
+/* Modal UI */
+.modal-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);display:none;align-items:center;justify-content:center;z-index:2800}
+.modal{background:#fff;border-radius:20px;padding:24px;width:calc(100% - 32px);max-width:400px;box-shadow:0 10px 30px rgba(0,0,0,0.2)}
+.modal-title{font-size:20px;font-weight:800;color:var(--dark);margin:0 0 16px}
+.modal-tabs{display:flex;gap:10px;margin-bottom:16px;border-bottom:1px solid var(--line)}
+.modal-tab{padding:8px 12px;border:0;background:none;font-weight:700;color:var(--muted);border-bottom:2px solid transparent}
+.modal-tab.active{color:var(--g);border-bottom-color:var(--g)}
+.google-btn-box{margin-top:14px;display:flex;justify-content:center}
+
 @media(max-width:850px){.grid,.chartgrid{grid-template-columns:1fr}.hero h1{font-size:25px}.row{grid-template-columns:1fr}.top{position:relative}.map{height:300px}.score{font-size:36px}}
 </style></head>
 <body>
-<header class="top"><div class="topbar"><div><div class="brand">MavunoGuard <span>AI</span></div><div class="tag">Protect your harvest. Grow with confidence.</div></div><div class="top-actions"><button id="topInstallBtn" class="btn accent hidden" onclick="triggerInstallPrompt()">📲 Install App</button><button class="btn ghost" onclick="resetApp()">Reset</button></div></div></header>
+<header class="top"><div class="topbar"><div><div class="brand">MavunoGuard <span>AI</span></div><div class="tag">Protect your harvest. Grow with confidence.</div></div><div class="top-actions"><button id="topInstallBtn" class="btn accent hidden" onclick="triggerInstallPrompt()">📲 Install App</button><div id="userBox"><button id="authBtn" class="btn ghost" onclick="openAuthModal()">Sign In</button></div><button class="btn ghost" onclick="resetApp()">Reset</button></div></div></header>
 <main class="container">
 <section class="hero"><h1>Know your farm before the problem becomes a loss.</h1><p>MavunoGuard combines your farm location with weather, GIS and satellite vegetation information, then turns the numbers into simple actions, trends and visual warnings.</p></section>
 <div id="status" class="status"></div>
@@ -50,10 +60,137 @@
   </div>
 </div>
 
+<!-- Auth Modal -->
+<div id="authModal" class="modal-overlay">
+  <div class="modal">
+    <h3 class="modal-title">Account Access</h3>
+    <div class="modal-tabs">
+      <button class="modal-tab active" id="tabLogin" onclick="switchAuthTab('login')">Sign In</button>
+      <button class="modal-tab" id="tabRegister" onclick="switchAuthTab('register')">Register</button>
+    </div>
+    <form id="authForm" onsubmit="handleAuthSubmit(event)">
+      <label class="label">Username</label>
+      <input id="authUser" required placeholder="Your username">
+      <div id="emailBox" class="hidden">
+        <label class="label">Email address</label>
+        <input id="authEmail" type="email" placeholder="name@example.com">
+      </div>
+      <label class="label">Password</label>
+      <input id="authPass" type="password" required placeholder="••••••••">
+      <div class="actions" style="margin-top:16px">
+        <button type="button" class="btn secondary" onclick="closeAuthModal()">Cancel</button>
+        <button type="submit" id="authSubmitBtn" class="btn primary">Sign In</button>
+      </div>
+    </form>
+    <div style="text-align:center;margin:12px 0 4px;font-size:12px;color:var(--muted)">or continue with</div>
+    <div class="google-btn-box">
+      <div id="g_id_onload"
+           data-client_id="YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com"
+           data-callback="handleGoogleCredentialResponse">
+      </div>
+      <div class="g_id_signin" data-type="standard" data-shape="rectangular" data-theme="outline" data-text="signin_with"></div>
+    </div>
+  </div>
+</div>
+
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script><script>
-let lat=-0.6817,lng=34.7660,marker=null,map=null,current=1,lastResult=null,deferredInstallPrompt=null;const $=id=>document.getElementById(id);
+let lat=-0.6817,lng=34.7660,marker=null,map=null,current=1,lastResult=null,deferredInstallPrompt=null,currentUser=null,authMode='login';const $=id=>document.getElementById(id);
 function toast(msg){const t=$('toast');t.textContent=msg;t.style.display='block';clearTimeout(window.tt);window.tt=setTimeout(()=>t.style.display='none',4200)}
 function setStatus(msg,offline=false){const s=$('status');s.textContent=msg;s.className='status'+(offline?' offline':'');s.style.display='block'}
+
+/* --- Auth Logic --- */
+function openAuthModal(){$('authModal').style.display='flex'}
+function closeAuthModal(){$('authModal').style.display='none'}
+function switchAuthTab(mode){
+  authMode=mode;
+  $('tabLogin').className='modal-tab '+(mode==='login'?'active':'');
+  $('tabRegister').className='modal-tab '+(mode==='register'?'active':'');
+  $('emailBox').className=mode==='register'?'':'hidden';
+  $('authSubmitBtn').textContent=mode==='login'?'Sign In':'Register';
+}
+
+async function checkAuthSession(){
+  const token = localStorage.getItem('mvg_session_token');
+  if(!token) return updateAuthUI(null);
+  try{
+    const r = await fetch('/api/auth/me', {headers:{'Authorization':`Bearer ${token}`}});
+    if(r.ok){
+      currentUser = await r.json();
+      updateAuthUI(currentUser);
+    } else {
+      localStorage.removeItem('mvg_session_token');
+      updateAuthUI(null);
+    }
+  }catch(e){
+    updateAuthUI(null);
+  }
+}
+
+function updateAuthUI(user){
+  currentUser = user;
+  const box = $('userBox');
+  if(user){
+    box.innerHTML = `<span class="small" style="color:#fff;margin-right:6px">👤 ${user.username}</span><button class="btn ghost" onclick="logout()">Logout</button>`;
+  } else {
+    box.innerHTML = `<button id="authBtn" class="btn ghost" onclick="openAuthModal()">Sign In</button>`;
+  }
+}
+
+async function handleAuthSubmit(e){
+  e.preventDefault();
+  const username = $('authUser').value.trim();
+  const password = $('authPass').value;
+  const email = $('authEmail').value.trim();
+
+  const endpoint = authMode === 'register' ? '/api/auth/register' : '/api/auth/login';
+  const body = { username, password, email };
+
+  try {
+    const res = await fetch(endpoint, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(body)
+    });
+    const data = await res.json();
+    if(!res.ok) throw new Error(data.detail || 'Authentication failed');
+
+    localStorage.setItem('mvg_session_token', data.token);
+    updateAuthUI(data.user);
+    closeAuthModal();
+    toast(`Welcome ${data.user.username}!`);
+  } catch(err) {
+    toast(err.message);
+  }
+}
+
+async function handleGoogleCredentialResponse(response){
+  try {
+    const res = await fetch('/api/auth/google', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ credential: response.credential })
+    });
+    const data = await res.json();
+    if(!res.ok) throw new Error(data.detail || 'Google sign-in failed');
+
+    localStorage.setItem('mvg_session_token', data.token);
+    updateAuthUI(data.user);
+    closeAuthModal();
+    toast(`Signed in as ${data.user.username}`);
+  } catch(err) {
+    toast(err.message);
+  }
+}
+
+async function logout(){
+  const token = localStorage.getItem('mvg_session_token');
+  if(token){
+    try{ fetch('/api/auth/logout', {method:'POST', headers:{'Authorization':`Bearer ${token}`}}); }catch{}
+  }
+  localStorage.removeItem('mvg_session_token');
+  updateAuthUI(null);
+  toast('Signed out');
+}
 
 /* --- Chrome/PWA Installation Logic --- */
 function isStandalone(){return window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true}
@@ -149,7 +286,7 @@ function patchWeatherResult(r,w){
   return r;
 }
 
-async function analyze(){const p=payload();if(!p.planting_date)return toast('Add the planting date so the system can interpret the crop stage.');$('dashboard').classList.add('show');window.scrollTo({top:$('dashboard').offsetTop-10,behavior:'smooth'});if(!navigator.onLine){setStatus('Offline mode: creating a local farm check.',true);const r=localFallback(p,'offline');lastResult=r;render(r);return}setStatus('Analyzing live weather + GIS + Sentinel-2 data…');try{const res=await fetch('/api/analyze',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(p)});let body=null;try{body=await res.json()}catch{}if(!res.ok)throw new Error(body?.detail?.message||body?.detail||`Server returned HTTP ${res.status}`);const r=body;if(!r.live?.weather){const dw=await directWeatherFallback(p.latitude,p.longitude);if(dw)patchWeatherResult(r,dw);}localStorage.setItem('mvg_last_result',JSON.stringify(r));saveHistory(r);lastResult=r;render(r);const weatherLive=!!r.live?.weather;const ndviLive=!!r.live?.sentinel_ndvi;if(weatherLive||ndviLive){const parts=[];if(weatherLive)parts.push('live weather');if(ndviLive)parts.push('live Sentinel-2 NDVI');if(!ndviLive&&r.satellite?.ndvi?.status==='not_configured')parts.push('Sentinel-2 not configured');setStatus(`Live analysis${parts.length?' • '+parts.join(' • '):''}`)}else{setStatus('Live data temporarily unavailable. No live weather or Sentinel-2 measurements were returned.',true)}}catch(e){const r=localFallback(p,'live_failed');r.error={message:e.message};lastResult=r;render(r);toast(`Live analysis failed: ${e.message}`);setStatus('Live data temporarily unavailable. The phone is online, but the server request failed. Try again after checking Render.',true)}}
+async function analyze(){const p=payload();if(!p.planting_date)return toast('Add the planting date so the system can interpret the crop stage.');$('dashboard').classList.add('show');window.scrollTo({top:$('dashboard').offsetTop-10,behavior:'smooth'});if(!navigator.onLine){setStatus('Offline mode: creating a local farm check.',true);const r=localFallback(p,'offline');lastResult=r;render(r);return}setStatus('Analyzing live weather + GIS + Sentinel-2 data…');try{const token=localStorage.getItem('mvg_session_token');const headers={'Content-Type':'application/json'};if(token)headers['Authorization']=`Bearer ${token}`;const res=await fetch('/api/analyze',{method:'POST',headers,body:JSON.stringify(p)});let body=null;try{body=await res.json()}catch{}if(!res.ok)throw new Error(body?.detail?.message||body?.detail||`Server returned HTTP ${res.status}`);const r=body;if(!r.live?.weather){const dw=await directWeatherFallback(p.latitude,p.longitude);if(dw)patchWeatherResult(r,dw);}localStorage.setItem('mvg_last_result',JSON.stringify(r));saveHistory(r);lastResult=r;render(r);const weatherLive=!!r.live?.weather;const ndviLive=!!r.live?.sentinel_ndvi;if(weatherLive||ndviLive){const parts=[];if(weatherLive)parts.push('live weather');if(ndviLive)parts.push('live Sentinel-2 NDVI');if(!ndviLive&&r.satellite?.ndvi?.status==='not_configured')parts.push('Sentinel-2 not configured');setStatus(`Live analysis${parts.length?' • '+parts.join(' • '):''}`)}else{setStatus('Live data temporarily unavailable. No live weather or Sentinel-2 measurements were returned.',true)}}catch(e){const r=localFallback(p,'live_failed');r.error={message:e.message};lastResult=r;render(r);toast(`Live analysis failed: ${e.message}`);setStatus('Live data temporarily unavailable. The phone is online, but the server request failed. Try again after checking Render.',true)}}
 
 function fmtRisk(v){return v==null||Number.isNaN(v)?'—':`${Math.round(v)}/100`};function render(r){const k=r.risk||{};$('summary').textContent=`${r.farm.farm_name} • ${r.farm.crop} • ${r.farm.latitude.toFixed(4)}, ${r.farm.longitude.toFixed(4)}`;$('score').textContent=k.score??'—';$('riskTitle').textContent=k.title||'—';$('riskFill').style.width=`${k.score||0}%`;$('drought').textContent=fmtRisk(k.drought);$('floodRisk').textContent=fmtRisk(k.flood);$('cropStress').textContent=fmtRisk(k.crop_stress);$('headline').textContent=k.headline||'Farm result';$('why').textContent=k.explanation||'';$('recommend').innerHTML=(k.actions||[]).map((x,i)=>`<li><span class="num">${i+1}</span>${x}</li>`).join('');$('watch').innerHTML=(k.watch_next||[]).map(x=>`<li>${x}</li>`).join('');$('sources').textContent=(r.sources||[]).join(' • ');renderEvidence(r);renderRain(r);renderNdvi(r);renderPie(k);renderWhyRisk(r);renderVegStory(r);renderHistory(r);}
 function renderEvidence(r){const k=r.risk||{};const w=k.weather||{};const s=r.satellite||{};const n=s.ndvi||{};let mode=r.mode==='offline'?'Offline farm check':r.mode==='live_failed'?'Live data temporarily unavailable':(r.live?.weather||r.live?.sentinel_ndvi)?'Live analysis':'Live analysis — no live measurements';let html=`<b>Analysis mode:</b> ${mode}.<br><b>GIS:</b> farm point ${r.farm.latitude.toFixed(5)}°, ${r.farm.longitude.toFixed(5)}°; elevation ${k.elevation_m??'—'} m. Monitoring window: ${k.monitoring_window||'local'}.<br><b>Weather:</b> next 7 days ${w.rain7_mm??'—'} mm rain; max temperature ${w.max_temp_7d_c??'—'}°C; ${w.heavy_rain_days_7d??0} heavy-rain day(s).`;if(w.live===false)html+=` <span class="small">${w.error?'Live weather request failed: '+w.error:'No live weather returned.'}</span>`;html+='<br>';if(n.available&&n.series?.length){const v=n.series[n.series.length-1];html+=`<b>Sentinel-2:</b> latest NDVI ${v.ndvi?.toFixed(2)??'—'} on ${v.date}; trend ${k.ndvi_trend||'—'}.<br>`}else html+=`<b>Sentinel-2:</b> ${n.reason||'No NDVI value available in this run.'}<br>`;if(s.scenes?.length)html+=`<b>Satellite coverage:</b> ${s.scenes.length} recent low-cloud Sentinel-2 scene(s) found.`;else if(s.reason)html+=`<b>Satellite coverage:</b> ${s.reason}`;else html+=`<b>Satellite coverage:</b> scene search unavailable right now.`;$('evidence').innerHTML=html}
@@ -165,5 +302,5 @@ function renderHistory(r){let h=[];try{h=JSON.parse(localStorage.getItem('mvg_hi
 function renderPie(k){const vals=[Math.max(1,k.drought||0),Math.max(1,k.flood||0),Math.max(1,k.crop_stress||0)],sum=vals.reduce((a,b)=>a+b,0);let start=-Math.PI/2,cx=150,cy=105,r=70;function arc(a1,a2){const x1=cx+r*Math.cos(a1),y1=cy+r*Math.sin(a1),x2=cx+r*Math.cos(a2),y2=cy+r*Math.sin(a2),large=a2-a1>Math.PI?1:0;return `M ${cx} ${cy} L ${x1} ${y1} A ${r} ${r} 0 ${large} 1 ${x2} ${y2} Z`}const labels=['Dryness','Heavy rain','Crop stress'];let html='';vals.forEach((v,i)=>{const end=start+v/sum*Math.PI*2;html+=`<path d="${arc(start,end)}" fill="${['#f1a51b','#1976d2','#08783b'][i]}" opacity=".9"/>`;const mid=(start+end)/2;html+=`<text x="${cx+95*Math.cos(mid)}" y="${cy+95*Math.sin(mid)}" text-anchor="middle" font-size="11">${labels[i]}</text>`;start=end});$('pieChart').innerHTML=html}
 function resetApp(){location.reload()}
 window.addEventListener('online',()=>setStatus('Back online. Live weather and satellite checks are available again.'));window.addEventListener('offline',()=>setStatus('Offline mode: GPS/manual pin and saved map areas continue to work. Live weather/satellite refresh waits for connection.',true));
-(async()=>{const saved=localStorage.getItem('mvg_location');if(saved){try{const x=JSON.parse(saved);lat=x.lat;lng=x.lng}catch{}}initMap();if('serviceWorker' in navigator){try{await navigator.serviceWorker.register('/sw.js')}catch{}}if(!navigator.onLine)setStatus('Offline mode: GPS/manual pin and saved map areas continue to work.',true);const old=localStorage.getItem('mvg_last_result');if(old){try{lastResult=JSON.parse(old);toast('Previous farm result is available offline.')}catch{}}})();
+(async()=>{const saved=localStorage.getItem('mvg_location');if(saved){try{const x=JSON.parse(saved);lat=x.lat;lng=x.lng}catch{}}initMap();checkAuthSession();if('serviceWorker' in navigator){try{await navigator.serviceWorker.register('/sw.js')}catch{}}if(!navigator.onLine)setStatus('Offline mode: GPS/manual pin and saved map areas continue to work.',true);const old=localStorage.getItem('mvg_last_result');if(old){try{lastResult=JSON.parse(old);toast('Previous farm result is available offline.')}catch{}}})();
 </script></body></html>
