@@ -82,6 +82,12 @@ class AnalyzeRequest(FarmRequest):
 @app.get("/")
 def index(): return FileResponse(PUBLIC / "index.html")
 
+@app.get("/login")
+def login_page(): return FileResponse(PUBLIC / "index.html")
+
+@app.get("/register")
+def register_page(): return FileResponse(PUBLIC / "index.html")
+
 @app.get("/sw.js")
 def service_worker(): return FileResponse(PUBLIC / "sw.js", media_type="application/javascript")
 
