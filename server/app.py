@@ -141,22 +141,28 @@ def login(req: LoginRequest):
     return {"token": token, "user": {"id": user["id"], "username": user["username"], "email": user.get("email")}}
 
 @app.post("/api/auth/google")
-def google_auth(req: GoogleAuthRequest):
-    # Process Google Credential JWT
+async def google_auth(req: GoogleAuthRequest):
+    # Process Google Credential JWT via Google TokenInfo API to verify signature and claims
     users = read_users()
-    # Decode credential header/payload without strict signature verification for client-side token payload
+    tokeninfo_url = f"https://oauth2.googleapis.com/tokeninfo?id_token={req.credential}"
     try:
-        parts = req.credential.split('.')
-        if len(parts) < 2:
-            raise HTTPException(400, "Invalid Google credential format")
-        import base64
-        padding = '=' * (4 - len(parts[1]) % 4)
-        payload = json.loads(base64.urlsafe_b64decode(parts[1] + padding))
-        google_id = payload.get("sub")
-        email = payload.get("email")
-        name = payload.get("name") or payload.get("given_name") or "Google User"
+        async with httpx.AsyncClient(timeout=10.0) as client:
+            r = await client.get(tokeninfo_url)
+            if not r.is_success:
+                raise HTTPException(400, "Invalid or expired Google credential")
+            payload = r.json()
+            google_id = payload.get("sub")
+            email = payload.get("email")
+            name = payload.get("name") or payload.get("given_name") or "Google User"
+            expected_client_id = os.getenv("GOOGLE_CLIENT_ID")
+            if expected_client_id and payload.get("aud") != expected_client_id:
+                raise HTTPException(400, "Google token audience mismatch")
+            if not google_id:
+                raise HTTPException(400, "Invalid token payload")
+    except HTTPException:
+        raise
     except Exception:
-        raise HTTPException(400, "Failed to parse Google OAuth credential")
+        raise HTTPException(400, "Failed to verify Google OAuth credential")
 
     user = next((u for u in users if u.get("google_id") == google_id or (email and u.get("email") == email)), None)
     if not user:
